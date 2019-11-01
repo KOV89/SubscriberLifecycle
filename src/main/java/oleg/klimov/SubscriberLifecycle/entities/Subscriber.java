@@ -1,5 +1,6 @@
 package oleg.klimov.SubscriberLifecycle.entities;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -12,16 +13,19 @@ import java.util.Set;
 public class Subscriber implements UserDetails {
     @Id
     @Column(name = "msisdn")
+    @JsonView(Views.Subscriber.class)
     private Long msisdn;
-
     @Column(name = "msisdn", insertable = false, updatable = false)
     private String username;
-
+    @JsonView(Views.Subscriber.class)
     private String name;
+    @JsonView(Views.Subscriber.class)
     private String surname;
     private String password;
+    @JsonView(Views.Subscriber.class)
     private Float balance;
     private Boolean enabled;
+    @JsonView(Views.Subscriber.class)
     private Boolean active;
 
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
@@ -123,11 +127,7 @@ public class Subscriber implements UserDetails {
         this.balance = balance;
     }
 
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public Boolean getActive() {
+    public Boolean isActive() {
         return active;
     }
 
