@@ -11,6 +11,7 @@
 	<groupId>oleg.klimov</groupId>
 	<artifactId>SubscriberLifecycle</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
 	<name>SubscriberLifecycle</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -61,7 +62,12 @@
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
 	<build>
 		<plugins>
